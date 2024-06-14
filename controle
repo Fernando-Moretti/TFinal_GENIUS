@@ -1,0 +1,82 @@
+module Controle(
+input CLOCK, enter, reset, end_FPGA,
+input end_User, end_time, win, match
+output reg R1, R2, E1, E2, E3, E4, SEL
+);
+
+wire ESTADO_INIT;
+wire ESTADO_SETUP;
+wire ESTADO_PLAY_FPGA;
+wire ESTADO_PLAY_USER;
+wire ESTADO_CHECK;
+wire ESTADO_NEXT_ROUND;
+wire ESTADO_RESULT;
+reg [2:0]estado_atual;
+
+  always @(posedge CLOCK or posedge reset) begin
+    if (reset) begin
+  
+      estado_atual <= ESTADO_INIT;
+    end else begin
+      case (estado_atual)
+        ESTADO_INIT:
+          R1 <= 1;
+          R2 <= 1;
+          E1 <= 0;
+          E2 <= 0;
+          E3 <= 0;
+          E4 <= 0;
+          SEL <= 0;
+          estado_atual <= ESTADO_SETUP;
+        ESTADO_SETUP:
+          R1 <= 0;
+          R2 <= 0;
+          E1 <= 1;
+          if (enter) begin
+            estado_atual <= ESTADO_PLAY_FPGA;
+          end else begin
+            estado_atual <= ESTADO_SETUP;
+          end
+        ESTADO_PLAY_FPGA:
+          E1 <= 0;
+          E3 <= 1;
+          if (end_FPGA) begin
+            estado_atual <= ESTADO_PLAY_USER;
+          end else begin
+            estado_atual <= ESTADO_PLAY_FPGA;
+          end
+        ESTADO_PLAY_USER:
+          E3 <= 0;
+          E2 <= 1;
+          if (end_time) begin
+            estado_atual <= ESTADO_RESULT;
+          end else if (end_User) begin
+            estado_atual <= ESTADO_CHECK;
+          end else begin
+            estado_atual <= ESTADO_PLAY_USER;
+          end
+        ESTADO_CHECK:
+          E2 <= 0;
+          E4 <= 1;
+          if (match) begin
+            estado_atual <= ESTADO_NEXT_ROUND;
+          end else begin
+            estado_atual <= ESTADO_RESULT;
+          end
+        ESTADO_NEXT_ROUND:
+          E4 <= 0;
+          R2 <= 1;
+          if (win) begin
+            estado_atual <= ESTADO_RESULT;
+          end else begin
+            estado_atual <= ESTADO_PLAY_FPGA;
+          end
+        ESTADO_RESULT:
+        R2 <= 0;
+        SEL <= 1;
+          estado_atual <= ESTADO_RESULT;
+        default:
+          estado_atual <= ESTADO_INIT;
+      endcase
+    end
+  end

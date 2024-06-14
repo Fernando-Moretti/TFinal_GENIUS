@@ -1,0 +1,6 @@
+module mux(a,b,sel,saida);
+  input wire a, b, sel;
+  output wire saida;
+  
+  assign saida = (sel == 1'b0) ? a : b;
+    endmodule

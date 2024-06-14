@@ -1,0 +1,130 @@
+`timescale 1ns / 1ps
+
+module Controle_TB;
+
+  // Entradas
+  reg CLOCK;
+  reg enter;
+  reg reset;
+  reg end_FPGA;
+  reg end_User;
+  reg end_time;
+  reg win;
+  reg match;
+
+  // Saídas
+  wire R1;
+  wire R2;
+  wire E1;
+  wire E2;
+  wire E3;
+  wire E4;
+  wire SEL;
+
+  // Instanciação do módulo Controle
+  Controle uut (
+    .CLOCK(CLOCK), 
+    .enter(enter), 
+    .reset(reset), 
+    .end_FPGA(end_FPGA), 
+    .end_User(end_User), 
+    .end_time(end_time), 
+    .win(win), 
+    .match(match), 
+    .R1(R1), 
+    .R2(R2), 
+    .E1(E1), 
+    .E2(E2), 
+    .E3(E3), 
+    .E4(E4), 
+    .SEL(SEL)
+  );
+
+  // Geração do clock
+  initial begin
+    CLOCK = 0;
+    forever #5 CLOCK = ~CLOCK;
+  end
+
+  initial begin
+    // Inicialização
+    enter = 0;
+    reset = 1;
+    end_FPGA = 0;
+    end_User = 0;
+    end_time = 0;
+    win = 0;
+    match = 0;
+    
+    // Espera por reset
+    #10;
+    reset = 0;
+    #10;
+    
+    // Teste de transição para ESTADO_SETUP
+    $display("Testando transição para ESTADO_SETUP");
+    #10;
+    
+    // Teste de transição para ESTADO_PLAY_FPGA
+    $display("Testando transição para ESTADO_PLAY_FPGA");
+    enter = 1;
+    #10;
+    enter = 0;
+    #10;
+    
+    // Teste de transição para ESTADO_PLAY_USER
+    $display("Testando transição para ESTADO_PLAY_USER");
+    end_FPGA = 1;
+    #10;
+    end_FPGA = 0;
+    #10;
+    
+    // Teste de transição para ESTADO_CHECK
+    $display("Testando transição para ESTADO_CHECK");
+    end_User = 1;
+    #10;
+    end_User = 0;
+    
+    // Teste de transição para ESTADO_NEXT_ROUND (match)
+    $display("Testando transição para ESTADO_NEXT_ROUND (match)");
+    match = 1;
+    #10;
+    match = 0;
+    
+    // Teste de transição para ESTADO_PLAY_FPGA (próxima rodada)
+    $display("Testando transição para ESTADO_PLAY_FPGA (próxima rodada)");
+    #10;
+    
+    // Teste de transição para ESTADO_PLAY_USER
+    $display("Testando transição para ESTADO_PLAY_USER");
+    end_FPGA = 1;
+    #10;
+    end_FPGA = 0;
+    #10;
+    
+    // Teste de transição para ESTADO_CHECK
+    $display("Testando transição para ESTADO_CHECK");
+    end_User = 1;
+    #10;
+    end_User = 0;
+    
+    // Teste de transição para ESTADO_RESULT (não match)
+    $display("Testando transição para ESTADO_RESULT (não match)");
+    #10;
+    
+    // Teste de transição para ESTADO_PLAY_FPGA (win)
+    $display("Testando transição para ESTADO_PLAY_FPGA (win)");
+    win = 1;
+    #10;
+    win = 0;
+    
+    // Teste de transição para ESTADO_RESULT (end_time)
+    $display("Testando transição para ESTADO_RESULT (end_time)");
+    end_time = 1;
+    #10;
+    end_time = 0;
+
+    $finish;
+  end
+
+endmodule
