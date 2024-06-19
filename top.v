@@ -57,15 +57,18 @@ controle U01(
 	.CLOCK(CLOCK_50), 
 	.enter(SW[0]),
 	.reset(SW[1]),
-	.end_FPGA(w_end_FPGA), .end_User(w_end_User), .end_time(w_end_time),
+	.end_FPGA(w_end_FPGA), 
+	.end_User(w_end_User), 
+	.end_time(w_end_time),
 	.win(w_win),
 	.match(w_match),
-	.R1(w_r1), .R2(w_r2),
-	.E1(w_e1), .E2(w_e2), .E3(w_e3), .E4(w_e4),
+	.R1(w_r1), 
+	.R2(w_r2), 
+	.E1(w_e1), 
+	.E2(w_e2), 
+	.E3(w_e3), 
+	.E4(w_e4),
 	.SEL(w_sel)
 );
-
-assign w_r2 = SW[0];
-assign w_e2 = SW[1];
 
 endmodule

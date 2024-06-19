@@ -9,12 +9,16 @@ module FSM_clock(
 
     reg [27:0] counter25Hz, counter5Hz, counter1Hz, counter2Hz;
 
-    always @(posedge CLOCK_50 or posedge reset) begin
+    always @(posedge CLOCK_50 or posedge reset) begin // Conectar CLOCK_50 aqui
         if (reset) begin
             counter25Hz <= 0;
             counter5Hz <= 0;
             counter1Hz <= 0;
             counter2Hz <= 0;
+            C025Hz <= 0;      
+            C05Hz <= 0;         
+            C1Hz <= 0;          
+            C2Hz <= 0;          
         end else begin
             counter25Hz <= counter25Hz + 1;
             counter5Hz <= counter5Hz + 1;
@@ -39,5 +43,4 @@ module FSM_clock(
             end
         end
     end
-
 endmodule
