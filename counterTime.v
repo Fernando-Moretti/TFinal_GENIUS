@@ -5,11 +5,12 @@ module counterTime
   R,
   E,
   TEMPO,
-end_time
+end_time,
+data
 );
 
 
-input wire CLKT, R, E;
+input wire CLKT, R, E, data;
 
 output reg [SIZE-1:0] TEMPO;
 output reg end_time;

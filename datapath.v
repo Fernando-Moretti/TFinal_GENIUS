@@ -105,13 +105,38 @@ segDisplay hex0_D1(
 /////////////////////////////////////
 wire [p_counter_tempo-1:0] w_TEMPO;
 wire w_end_time;
-
-counterTime U02 (
+wire [3:0]ROUND;
+wire [3:0]SETUP
+counterGENERAL Timer(
 	 .CLKT(CLOCK_50), 
 	 .R(R2), 
 	 .E(E2), 
-	 .TEMPO(),
-	 .end_time()
+	 .CONTADOR(),
+	 .REGISTRADOR(),
+	 .data()
+);
+counterGENERAL FPGA(
+.CLKT(CLKHZ),
+.R(R2),
+.E(E3),
+.data(ROUND[3:0])
+);
+
+counterGENERAL Round(
+.data(SETUP[3:0),
+.R(R1),
+.E(E4),
+.CLKT(CLOCK_50),
+.CONTADOR(ROUND)
+
+);
+counterGENERAL User(
+.data(ROUND[3:0]),
+.R(R2),
+.E(), //fazer uma wire com um processo de AND E OR
+
+
+
 );
 
 endmodule
