@@ -39,6 +39,11 @@ output wire end_FPGA, end_User, end_time, win, match;
 
 wire w_win;
 wire w_mux2x1_hex5;
+wire w_mux2x1_hex4;
+wire w_mux2x1_hex3;
+wire w_mux2x1_hex2;
+wire w_mux2x1_hex1;
+wire w_mux2x1_hex0;
 
 //hex5
 mux2x1 U01(
@@ -56,6 +61,25 @@ mux2x1 U00(
 );
 
 //hex4
+mux2x1 Uhex04(
+	.a_i(7'b011_1000), ///mudar numeros
+	.b_i(7'b011_1000), //mudar numeros
+	.sel_i(w_win),
+	.d_o(w_mux2x1_hex4)
+);
+
+mux2x1 Uhex04_1(
+	.a_i(w_hex4_dec), 
+	.b_i(w_mux2x1_hex4),
+	.sel_i(SEL),
+	.d_o(hex4)
+);
+
+segDisplay hex4_D1(
+    .b(4'b0000),    //'00' & setup[7:6]
+    .d(w_hex4_dec)
+);
+
 //hex3
 mux2x1 Uhex03(
 	.a_i(7'b011_1000), ///mudar numeros
@@ -72,6 +96,25 @@ mux2x1 Uhex03_1(
 );
 
 //hex2
+mux2x1 Uhex02(
+	.a_i(7'b011_1000), ///mudar numeros
+	.b_i(7'b011_1000), //mudar numeros
+	.sel_i(w_win),
+	.d_o(w_mux2x1_hex2)
+);
+
+mux2x1 Uhex02_1(
+	.a_i(w_hex2_dec), 
+	.b_i(w_mux2x1_hex2),
+	.sel_i(SEL),
+	.d_o(hex2)
+);
+
+segDisplay hex2_D1(
+    .b(4'b0000),  //TIME
+    .d(w_hex2_dec)
+);
+
 //hex1
 mux2x1 Uhex01(
 	.a_i(7'b000_0000), ///mudar numero
@@ -81,7 +124,7 @@ mux2x1 Uhex01(
 );
 
 segDisplay hex1_D1(
-    .b(),  //points[7:4}
+    .b(),  //points[7:4]
     .d(w_hex1_dec)
 );
 
@@ -105,13 +148,36 @@ segDisplay hex0_D1(
 /////////////////////////////////////
 wire [p_counter_tempo-1:0] w_TEMPO;
 wire w_end_time;
+wire [3:0]ROUND;
+wire [3:0]SETUP
 
-counterTime U02 (
+counterGENERAL Timer(
 	 .CLKT(CLOCK_50), 
 	 .R(R2), 
 	 .E(E2), 
-	 .TEMPO(),
-	 .end_time()
+	 .CONTADOR(),
+	 .REGISTRADOR(),
+	 .data()
+);
+counterGENERAL FPGA(
+.CLKT(CLKHZ),
+.R(R2),
+.E(E3),
+.data(ROUND[3:0])
 );
 
+counterGENERAL Round(
+.data(SETUP[3:0),
+.R(R1),
+.E(E4),
+.CLKT(CLOCK_50),
+.CONTADOR(ROUND)
+
+);
+counterGENERAL User(
+.data(ROUND[3:0]),
+.R(R2),
+.E(), //fazer uma wire com um processo de AND E OR
+
+);
 endmodule
