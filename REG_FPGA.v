@@ -1,19 +1,22 @@
 module REG_FPGA (
-    input clk,
-    input R,           // Sinal de Reset
-    input E,           // Sinal de Enable
-    input [63:0] data,  // Entrada de dados de 64 bits
-    output reg [63:0] q,  // Saída de dados de 64 bits
-    output reg [3:0] q3   // Saída dos 4 bits mais significativos (q[63:60])
+    clk,
+    R,           
+    E,          
+    data,  
+    q,  
+    q3  
 );
-
+	input clk, R, E;
+	input [63:0]data;
+	output reg[63:0]q;
+	output reg[3:0]q3; //MVP BITS
     always @(posedge clk or posedge R) begin
         if (R) begin
-            q <= 64'b0;    // Reset em 0
-            q3 <= 4'b0;   // Reset em 0
+            q <= 64'b0;    
+            q3 <= 4'b0;   
         end else if (E) begin
             q <= data;
-            q3 <= data[63:60]; // Atribui os 4 bits mais significativos
+            q3 <= data[63:60]; 
         end 
     end
 

@@ -1,13 +1,20 @@
-module MUX4X1_4bits (
-    input [1:0] SEL,         // Sinal de seleção de 2 bits 
-    input [3:0] ENT0,          // Entrada 0 (4 bits)
-    input [3:0] ENT1,          // Entrada 1 (4 bits)
-    input [3:0] ENT2,          // Entrada 2 (4 bits)
-    input [3:0] ENT3,          // Entrada 3 (4 bits)
-    output reg [3:0] out     // Saída (4 bits)
+module mux4x1_4 (
+    SEL,      
+    ENT0,          
+    ENT1,          
+    ENT2,          
+    ENT3,          
+    out     
 );
 
-    always @(*) begin
+    input [1:0] SEL;         
+    input [3:0] ENT0;         
+    input [3:0] ENT1;          
+    input [3:0] ENT2;          
+    input [3:0] ENT3;         
+    output reg [3:0] out;     
+
+    always @(SEL) begin
         case (SEL)
             2'b00: out = ENT0;
             2'b01: out = ENT1;

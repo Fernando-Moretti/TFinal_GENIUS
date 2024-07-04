@@ -1,7 +1,9 @@
 module decSeq11 (
-    input [3:0] address,
-    output reg [3:0] saida
+    address,
+    saida
 );
+	input [3:0]address;
+	output reg[3:0]saida;
 
     always @(*) begin
         case (address)
