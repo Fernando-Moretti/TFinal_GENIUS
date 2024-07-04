@@ -1,4 +1,4 @@
-	//7-Segment Display source code
+
 	
 	module segDisplay (b, d);
 	
@@ -7,7 +7,7 @@
 	
 	reg [6:0] d;
 	
-	always @* begin
+	always begin
 		case(b)
 		4'b0000: d = 7'b1000000;
 		4'b0001: d = 7'b1111001;

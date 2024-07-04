@@ -1,12 +1,13 @@
 module FSM_clock(
-    input reset,
-    input CLOCK_50,
-    output reg C025Hz,
-    output reg C05Hz,
-    output reg C1Hz,
-    output reg C2Hz
+    reset,
+    CLOCK_50,
+    C025Hz,
+    C05Hz,
+    C1Hz,
+    C2Hz
 );
-
+	input reset, CLOCK_50;
+	output reg C025Hz, C05Hz, C1Hz, C2Hz;
     reg [27:0] counter25Hz, counter5Hz, counter1Hz, counter2Hz;
 
     always @(posedge CLOCK_50 or posedge reset) begin // Conectar CLOCK_50 aqui
