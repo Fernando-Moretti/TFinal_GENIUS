@@ -34,115 +34,122 @@ output wire end_FPGA, end_User, end_time, win, match;
 
 wire [7:0]SETUP;
 wire w_win;
-wire w_mux2x1_hex5;
-wire w_mux2x1_hex4;
-wire w_mux2x1_hex3;
-wire w_mux2x1_hex2;
-wire w_mux2x1_hex1;
-wire w_mux2x1_hex0;
+wire [6:0]w_mux2x1_hex5;
+wire [6:0]w_mux2x1_hex4;
+wire [6:0]w_mux2x1_hex3;
+wire [6:0]w_mux2x1_hex2;
+wire [6:0]w_mux2x1_hex1;
+wire [6:0]w_mux2x1_hex0;
 
 //hex5
 mux2x1 HEX5_1(
 	.a_i(7'b100_0111), //F
 	.b_i(7'b011_1110), //U 
 	.sel_i(w_win),
-	.d_o(w_mux2x1_hex5)
+	.d_o(w_mux2x1_hex5[6:0])
 );
 
 mux2x1 HEX5_2(
 	.a_i(7'b000_1110), //L
-	.b_i(w_mux2x1_hex5),
+	.b_i(w_mux2x1_hex5[6:0]),
 	.sel_i(SEL),
-	.d_o(hex5)
+	.d_o(hex5[6:0])
 );
 
 //hex4
+wire [6:0]w_hex4_dec;
 mux2x1 HEX4_2(
-	.a_i(7'b011_1000), 
-	.b_i(7'b011_1000),
+	.a_i(7'b110_0111), //P 
+	.b_i(7'b101_1011), //S
 	.sel_i(w_win),
-	.d_o(w_mux2x1_hex4)
+	.d_o(w_mux2x1_hex4[6:0])
 );
 
-mux2x1 Uhex04_1(
-	.a_i(w_hex4_dec), 
-	.b_i(w_mux2x1_hex4),
+mux2x1 HEX4_1(
+	.a_i(w_hex4_dec[6:0]), 
+	.b_i(w_mux2x1_hex4[6:0]),
 	.sel_i(SEL),
-	.d_o(hex4)
+	.d_o(hex4[6:0])
 );
 
-segDisplay hex4_D1(
-    .b(7'b0000_000,SETUP[7:6]),    //'00' & setup[7:6]
-    .d(w_hex4_dec)
+segDisplay HEX4_DISPLAY(
+    .b({2'b00,SETUP[7:6]}),    //'00' & setup[7:6]
+    .d(w_hex4_dec[6:0])
 );
 
 //hex3
-mux2x1 Uhex03(
-	.a_i(7'b011_1000), 
-	.b_i(7'b011_1000),
+mux2x1 HEX3_1(
+	.a_i(7'b111_1011),  //g
+	.b_i(7'b100_1111),  //E
 	.sel_i(w_win),
-	.d_o(w_mux2x1_hex3)
+	.d_o(w_mux2x1_hex3[6:0])
 );
 
-mux2x1 Uhex03_1(
-	.a_i(7'b011_1000), 
-	.b_i(w_mux2x1_hex3),
+mux2x1 HEX3_2(
+	.a_i(7'b000_1111), //t
+	.b_i(w_mux2x1_hex3[6:0]),
 	.sel_i(SEL),
-	.d_o(hex3)
+	.d_o(hex3[6:0])
 );
 
 //hex2
-mux2x1 Uhex02(
-	.a_i(7'b011_1000), 
-	.b_i(7'b011_1000), 
+wire [3:0]TIME;
+wire [6:0]w_hex2_dec;
+mux2x1 HEX2_1(
+	.a_i(7'b111_0111),  //A
+	.b_i(7'b000_0101), //r
 	.sel_i(w_win),
-	.d_o(w_mux2x1_hex2)
+	.d_o(w_mux2x1_hex2[6:0])
 );
 
-mux2x1 Uhex02_1(
-	.a_i(w_hex2_dec), 
-	.b_i(w_mux2x1_hex2),
+mux2x1 HEX2_2(
+	.a_i(w_hex2_dec[6:0]), 
+	.b_i(w_mux2x1_hex2[6:0]),
 	.sel_i(SEL),
-	.d_o(hex2)
+	.d_o(hex2[6:0])
 );
 
-segDisplay hex2_D1(
-    .b(4'b0000),  //TIME
-    .d(w_hex2_dec)
+segDisplay HEX2_DISPLAY(
+    .b(TIME[3:0]),  //TIME
+    .d(w_hex2_dec[6:0])
 );
 
 //hex1
-mux2x1 Uhex01(
-	.a_i(7'b000_0000), ///mudar numero
-	.b_i(w_hex1_dec), 
+wire [6:0]w_hex1_dec;
+wire [7:0]POINTS;
+mux2x1 HEX1(
+	.a_i(7'b000_0101), ///r
+	.b_i(w_hex1_dec[6:0]), 
 	.sel_i(SEL),
-	.d_o(hex1)
+	.d_o(hex1[6:0])
 );
 
-segDisplay hex1_D1(
-    .b(),  //points[7:4]
-    .d(w_hex1_dec)
+segDisplay HEX1_DISPLAY(
+    .b(POINTS[7:4]),  //points[7:4]
+    .d(w_hex1_dec[6:0])
 );
 
-//hex0///////////////////////////////
-mux2x1 Uhex00(
-	.a_i(w_hex0_dec_2), 
-	.b_i(w_hex0_dec), 
+//hex0
+wire [6:0]w_hex0_dec;
+wire [6:0]w_hex0_dec_2;
+mux2x1 HEX0(
+	.a_i(w_hex0_dec_2[6:0]), 
+	.b_i(w_hex0_dec[6:0]), 
 	.sel_i(SEL),     
-	.d_o(hex0)
+	.d_o(hex0[6:0])
 );
 
-segDisplay hex0_D2(
-    .b(), //round
-    .d(w_hex0_dec_2)
+segDisplay HEX0_DISPLAY1(
+    .b(ROUND[3:0]), //round
+    .d(w_hex0_dec_2[6:0])
 );
 
-segDisplay hex0_D1(
-    .b(), //points[3:0]
-    .d(w_hex0_dec)
+segDisplay HEX0_DISPLAY2(
+    .b(POINTS[3:0]), //points[3:0]
+    .d(w_hex0_dec[6:0])
 );
-/////////////////////////////////////
 
+// COUNTERS
 wire [2:0] w_TEMPO;
 wire w_end_time;
 wire [3:0]ROUND;
@@ -281,7 +288,6 @@ REG_User regUSER(
     .q(OUT_USER[63:0])  
 );	
 //COMP
- wire to_endUSER;
  and (match, (OUT_FPGA == OUT_USER), end_User);
  
  //FSM CLOCK 
