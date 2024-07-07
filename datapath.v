@@ -42,102 +42,102 @@ wire w_mux2x1_hex1;
 wire w_mux2x1_hex0;
 
 //hex5
-mux2x1 HEX5_1(
+mux2x1 hex5_1(
 	.a_i(7'b100_0111), //F
 	.b_i(7'b011_1110), //U 
 	.sel_i(w_win),
 	.d_o(w_mux2x1_hex5)
 );
 
-mux2x1 HEX5_2(
+mux2x1 hex5_2(
 	.a_i(7'b000_1110), //L
-	.b_i(w_mux2x1_hex5),
+	.b_i(w_mux2x1_hex5), //mux
 	.sel_i(SEL),
 	.d_o(hex5)
 );
 
 //hex4
-mux2x1 HEX4_2(
-	.a_i(7'b011_1000), 
-	.b_i(7'b011_1000),
+mux2x1 hex4_1(
+	.a_i(7'b011_1000), //P
+	.b_i(7'b011_1000),  //S
 	.sel_i(w_win),
 	.d_o(w_mux2x1_hex4)
 );
 
-mux2x1 Uhex04_1(
+mux2x1 hex4_2(
 	.a_i(w_hex4_dec), 
 	.b_i(w_mux2x1_hex4),
 	.sel_i(SEL),
 	.d_o(hex4)
 );
 
-segDisplay hex4_D1(
+segDisplay hex4_3(
     .b(7'b0000_000,SETUP[7:6]),    //'00' & setup[7:6]
     .d(w_hex4_dec)
 );
 
 //hex3
-mux2x1 Uhex03(
-	.a_i(7'b011_1000), 
-	.b_i(7'b011_1000),
+mux2x1 hex3_1(
+	.a_i(7'b011_1000), //g
+	.b_i(7'b011_1000), //E
 	.sel_i(w_win),
 	.d_o(w_mux2x1_hex3)
 );
 
-mux2x1 Uhex03_1(
-	.a_i(7'b011_1000), 
+mux2x1 hex3_2(
+	.a_i(7'b011_1000), //t
 	.b_i(w_mux2x1_hex3),
 	.sel_i(SEL),
 	.d_o(hex3)
 );
 
 //hex2
-mux2x1 Uhex02(
-	.a_i(7'b011_1000), 
-	.b_i(7'b011_1000), 
+mux2x1 hex2_1(
+	.a_i(7'b011_1000), //A
+	.b_i(7'b011_1000), //r
 	.sel_i(w_win),
 	.d_o(w_mux2x1_hex2)
 );
 
-mux2x1 Uhex02_1(
+mux2x1 hex2_2(
 	.a_i(w_hex2_dec), 
 	.b_i(w_mux2x1_hex2),
 	.sel_i(SEL),
 	.d_o(hex2)
 );
 
-segDisplay hex2_D1(
+segDisplay hex2_3(
     .b(4'b0000),  //TIME
     .d(w_hex2_dec)
 );
 
 //hex1
-mux2x1 Uhex01(
-	.a_i(7'b000_0000), ///mudar numero
+mux2x1 hex1_1(
+	.a_i(7'b011_1000), //r
 	.b_i(w_hex1_dec), 
 	.sel_i(SEL),
 	.d_o(hex1)
 );
 
-segDisplay hex1_D1(
+segDisplay hex1_2(
     .b(),  //points[7:4]
     .d(w_hex1_dec)
 );
 
-//hex0///////////////////////////////
-mux2x1 Uhex00(
+//hex0
+mux2x1 hex0_1(
 	.a_i(w_hex0_dec_2), 
 	.b_i(w_hex0_dec), 
 	.sel_i(SEL),     
 	.d_o(hex0)
 );
 
-segDisplay hex0_D2(
+segDisplay hex0_2(
     .b(), //round
     .d(w_hex0_dec_2)
 );
 
-segDisplay hex0_D1(
+segDisplay hex0_3(
     .b(), //points[3:0]
     .d(w_hex0_dec)
 );
