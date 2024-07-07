@@ -42,22 +42,22 @@ wire w_mux2x1_hex1;
 wire w_mux2x1_hex0;
 
 //hex5
-mux2x1 U01(
-	.a_i(7'b011_1000),
-	.b_i(7'b011_1000), 
+mux2x1 HEX5_1(
+	.a_i(7'b100_0111), //F
+	.b_i(7'b011_1110), //U 
 	.sel_i(w_win),
 	.d_o(w_mux2x1_hex5)
 );
 
-mux2x1 U00(
-	.a_i(7'b011_1000),
+mux2x1 HEX5_2(
+	.a_i(7'b000_1110), //L
 	.b_i(w_mux2x1_hex5),
 	.sel_i(SEL),
 	.d_o(hex5)
 );
 
 //hex4
-mux2x1 Uhex04(
+mux2x1 HEX4_2(
 	.a_i(7'b011_1000), 
 	.b_i(7'b011_1000),
 	.sel_i(w_win),
@@ -72,7 +72,7 @@ mux2x1 Uhex04_1(
 );
 
 segDisplay hex4_D1(
-    .b(4'b0000),    //'00' & setup[7:6]
+    .b(7'b0000_000,SETUP[7:6]),    //'00' & setup[7:6]
     .d(w_hex4_dec)
 );
 
@@ -142,6 +142,7 @@ segDisplay hex0_D1(
     .d(w_hex0_dec)
 );
 /////////////////////////////////////
+
 wire [2:0] w_TEMPO;
 wire w_end_time;
 wire [3:0]ROUND;
@@ -227,7 +228,13 @@ decSeq11 SEQ4(
  .saida(SEQMUX11)
  
 );
-
+//LOGICA
+LOGICA Logica(
+    .REG_SetupLEVEL(SETUP[7:6]), 
+    .ROUND(ROUND[3:0]),          
+    .POINTS(POINTS[7:0]),
+	 .REG_SetupMAPA(SETUP[5:4])
+);
 //REG_USER
 REG_Setup regSetup(
     .clk(CLOCK_50),
@@ -274,6 +281,19 @@ REG_User regUSER(
     .q(OUT_USER[63:0])  
 );	
 //COMP
+ wire to_endUSER;
  and (match, (OUT_FPGA == OUT_USER), end_User);
+ 
+ //FSM CLOCK 
+ wire clk_25,clk_05,clk_1,clk_2;
+ FSM_clock clock_FSM(
+    .reset(R1),
+    .CLOCK_50(CLOCK_50),
+    .C025Hz(clk_25),
+    .C05Hz(clk_05),
+    .C1Hz(clk_1),
+    .C2Hz(clk_2)
+ );
+ 
 	
 endmodule
