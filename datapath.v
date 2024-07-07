@@ -21,6 +21,7 @@ module datapath(
 	end_time, 
 	win, 
 	match
+	
 );
 
 
@@ -262,6 +263,12 @@ wire [3:0]BTN;
 wire [3:0]NBTN;
 assign NBTN[3:0] = ~BTN[3:0];
 
+ButtonSynch BtSynch(
+    .a_i(KEY),
+    .d_o(BTN)
+);
+	
+	
 //REG_USER
 wire [63:0]OUT_USER;
 wire and2;
@@ -280,10 +287,13 @@ REG_User regUSER(
     .data(SUM_USER[63:0]),  
     .q(OUT_USER[63:0])  
 );	
+
+	
 //COMP
  wire to_endUSER;
  and (match, (OUT_FPGA == OUT_USER), end_User);
- 
+
+	
  //FSM CLOCK 
  wire clk_25,clk_05,clk_1,clk_2;
  FSM_clock clock_FSM(
@@ -294,6 +304,7 @@ REG_User regUSER(
     .C1Hz(clk_1),
     .C2Hz(clk_2)
  );
- 
+
+
 	
 endmodule
