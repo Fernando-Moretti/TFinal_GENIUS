@@ -41,6 +41,12 @@ wire [6:0]w_mux2x1_hex2;
 wire [6:0]w_mux2x1_hex1;
 wire [6:0]w_mux2x1_hex0;
 
+wire [3:0]NKEY;
+assign NKEY[3:0] = ~KEY[3:0];
+
+wire [9..6] LEDR1;
+wire [3..0] LEDR2;
+
 //hex5
 mux2x1 HEX5_1(
 	.a_i(7'b100_0111), //F
@@ -300,6 +306,8 @@ REG_User regUSER(
     .C1Hz(clk_1),
     .C2Hz(clk_2)
  );
- 
+
+	wire [63..60]
+
 	
 endmodule
