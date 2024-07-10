@@ -1,36 +1,8 @@
-C:/HDL/TFinal/sim/mux2x1.v {1 {vlog -work work C:/HDL/TFinal/sim/mux2x1.v
-Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module mux2x1
-
-Top level modules:
-	mux2x1
-
-} {} {}} C:/HDL/TFinal/sim/controle.v {1 {vlog -work work C:/HDL/TFinal/sim/controle.v
+C:/HDL/TFinal/sim/controle.v {1 {vlog -work work C:/HDL/TFinal/sim/controle.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling module Controle
 
 Top level modules:
 	Controle
-
-} {} {}} C:/HDL/TFinal/src/top.v {1 {vlog -work work C:/HDL/TFinal/src/top.v
-Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module top
-
-Top level modules:
-	top
-
-} {} {}} C:/HDL/TFinal/sim/datapath.v {1 {vlog -work work C:/HDL/TFinal/sim/datapath.v
-Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module datapath
-
-Top level modules:
-	datapath
-
-} {} {}} C:/HDL/TFinal/sim/counterTime.v {1 {vlog -work work C:/HDL/TFinal/sim/counterTime.v
-Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module counterTime
-
-Top level modules:
-	counterTime
 
 } {} {}}
