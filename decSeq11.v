@@ -5,7 +5,7 @@ module decSeq11 (
 	input [3:0]address;
 	output reg[3:0]saida;
 
-    always @(*) begin
+    always @(address) begin
         case (address)
             4'b0000: saida = 4'b0001;
             4'b0001: saida = 4'b1000;

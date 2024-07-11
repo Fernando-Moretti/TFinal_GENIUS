@@ -18,6 +18,10 @@ module REG_FPGA (
             q <= data;
             q3 <= data[63:60]; 
         end 
+      else begin
+            q <=  q;
+            q3 <= q3;
+          end
     end
 
 endmodule 

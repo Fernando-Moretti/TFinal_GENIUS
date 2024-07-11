@@ -1,0 +1,141 @@
+C:/HDL/TFINALGENIUS/sim/ButtonSync.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/ButtonSync.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ButtonSync
+
+Top level modules:
+	ButtonSync
+
+} {} {}} C:/HDL/TFINALGENIUS/sim/mux4x1_4.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/mux4x1_4.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module mux4X1_1
+
+Top level modules:
+	mux4X1_1
+
+} {} {}} C:/HDL/TFINALGENIUS/sim/REG_FPGA.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/REG_FPGA.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module REG_FPGA
+
+Top level modules:
+	REG_FPGA
+
+} {} {}} C:/HDL/TFINALGENIUS/sim/mux2x1.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/mux2x1.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module mux2x1
+
+Top level modules:
+	mux2x1
+
+} {} {}} C:/HDL/TFINALGENIUS/sim/counterFPGA.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/counterFPGA.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Counter_FPGA
+
+Top level modules:
+	Counter_FPGA
+
+} {} {}} C:/HDL/TFINALGENIUS/sim/decSeq10.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/decSeq10.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module decSeq10
+
+Top level modules:
+	decSeq10
+
+} {} {}} C:/HDL/TFINALGENIUS/sim/controle.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/controle.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module controle
+
+Top level modules:
+	controle
+
+} {} {}} C:/HDL/TFINALGENIUS/sim/counterTime.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/counterTime.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Counter_time
+
+Top level modules:
+	Counter_time
+
+} {} {}} C:/HDL/TFINALGENIUS/sim/decSeq11.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/decSeq11.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module decSeq11
+
+Top level modules:
+	decSeq11
+
+} {} {}} C:/HDL/TFINALGENIUS/sim/LOGICA.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/LOGICA.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module LOGICA
+
+Top level modules:
+	LOGICA
+
+} {} {}} C:/HDL/TFINALGENIUS/sim/top.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/top.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module top
+
+Top level modules:
+	top
+
+} {} {}} C:/HDL/TFINALGENIUS/sim/REG_User.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/REG_User.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module REG_User
+
+Top level modules:
+	REG_User
+
+} {} {}} C:/HDL/TFINALGENIUS/sim/segDisplay.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/segDisplay.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module segDisplay
+
+Top level modules:
+	segDisplay
+
+} {} {}} C:/HDL/TFINALGENIUS/sim/decSeq00.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/decSeq00.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module decSeq00
+
+Top level modules:
+	decSeq00
+
+} {} {}} C:/HDL/TFINALGENIUS/sim/counterGENERAL.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/counterGENERAL.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module counterGENERAL
+
+Top level modules:
+	counterGENERAL
+
+} {} {}} C:/HDL/TFINALGENIUS/sim/REG_Setup.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/REG_Setup.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module REG_Setup
+
+Top level modules:
+	REG_Setup
+
+} {} {}} C:/HDL/TFINALGENIUS/sim/decSeq01.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/decSeq01.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module decSeq01
+
+Top level modules:
+	decSeq01
+
+} {} {}} C:/HDL/TFINALGENIUS/sim/mux4x1_1.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/mux4x1_1.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module mux4X1_1
+
+Top level modules:
+	mux4X1_1
+
+} {} {}} C:/HDL/TFINALGENIUS/sim/datapath.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/datapath.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module datapath
+
+Top level modules:
+	datapath
+
+} {} {}} C:/HDL/TFINALGENIUS/sim/top_tb.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/top_tb.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module top_tb
+
+Top level modules:
+	top_tb
+
+} {} {}}

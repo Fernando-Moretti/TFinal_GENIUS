@@ -1,4 +1,4 @@
-// Button Press Synchronizer para keys que sÃ£o ativas baixas (ou seja, quando pressionadas vao para nivel baixo)
+// Button Press Synchronizer para keys que são ativas baixas (ou seja, quando pressionadas vao para nivel baixo)
 
 module ButtonSync (
 	KEY0, KEY1, KEY2, KEY3, CLK,

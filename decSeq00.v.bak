@@ -1,10 +1,11 @@
 module decSeq00 (
-    input [3:0] address,  // Entrada de endereço (não utilizada neste módulo)
-    output reg [3:0] output
+    address,  
+    saida
 );
-
-    always @(*) begin
-        output = 4'b0001; // Saída fixa para qualquer endereço
+	input [3:0]address;
+	output reg [3:0]saida;
+    always @(address) begin
+        saida = 4'b0001; 
     end
 
 endmodule

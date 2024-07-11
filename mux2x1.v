@@ -6,10 +6,10 @@ module mux2x1
 	d_o
 );
 
-input a_i;
-input wire  b_i;
+input [6:0]a_i;
+input wire  [6:0]b_i;
 input wire sel_i;
-output reg d_o;
+output reg [6:0]d_o;
 
 always @(a_i or b_i or sel_i)
 begin
@@ -20,3 +20,4 @@ begin
 end
 
 endmodule
+
