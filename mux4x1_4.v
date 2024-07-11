@@ -1,22 +1,26 @@
-module mux4X1_1(
-    level,     
-    CL1,            
-    CL2,             
-    CL3,             
-    CL4,             
-    CLKHZ        
+module mux4x1_4 (
+    SEL,      
+    ENT0,          
+    ENT1,          
+    ENT2,          
+    ENT3,          
+    out     
 );
-input wire [1:0] level;
-input wire CL1, CL2, CL3, CL4;
-output reg CLKHZ;
 
-    always @(level) begin
-        case (level)
-            2'b00: CLKHZ = CL1;
-            2'b01: CLKHZ = CL2;
-            2'b10: CLKHZ = CL3;
-            2'b11: CLKHZ = CL4;
-            default: CLKHZ = 1'b0;
+    input [1:0] SEL;         
+    input [3:0] ENT0;         
+    input [3:0] ENT1;          
+    input [3:0] ENT2;          
+    input [3:0] ENT3;         
+    output reg [3:0] out;     
+
+    always @(ENT0 or ENT1 or ENT2 or ENT3 or SEL) begin
+        case (SEL)
+            2'b00: out = ENT0;
+            2'b01: out = ENT1;
+            2'b10: out = ENT2;
+            2'b11: out = ENT3;
+            default: out = 4'b0; 
         endcase
     end
 

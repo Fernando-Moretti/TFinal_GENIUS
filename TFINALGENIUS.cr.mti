@@ -7,10 +7,10 @@ Top level modules:
 
 } {} {}} C:/HDL/TFINALGENIUS/sim/mux4x1_4.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/mux4x1_4.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module mux4X1_1
+-- Compiling module mux4x1_4
 
 Top level modules:
-	mux4X1_1
+	mux4x1_4
 
 } {} {}} C:/HDL/TFINALGENIUS/sim/REG_FPGA.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/REG_FPGA.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
@@ -47,12 +47,19 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	controle
 
-} {} {}} C:/HDL/TFINALGENIUS/sim/counterTime.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/counterTime.v
+} {} {}} C:/HDL/TFINALGENIUS/sim/LOGICA.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/LOGICA.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module Counter_time
+-- Compiling module LOGICA
 
 Top level modules:
-	Counter_time
+	LOGICA
+
+} {} {}} C:/HDL/TFINALGENIUS/sim/counterTime.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/counterTime.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module datapath
+
+Top level modules:
+	datapath
 
 } {} {}} C:/HDL/TFINALGENIUS/sim/decSeq11.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/decSeq11.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
@@ -61,12 +68,12 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	decSeq11
 
-} {} {}} C:/HDL/TFINALGENIUS/sim/LOGICA.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/LOGICA.v
+} {} {}} C:/HDL/TFINALGENIUS/sim/FSM_clock.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/FSM_clock.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module LOGICA
+-- Compiling module FSM_clock
 
 Top level modules:
-	LOGICA
+	FSM_clock
 
 } {} {}} C:/HDL/TFINALGENIUS/sim/top.v {1 {vlog -work work C:/HDL/TFINALGENIUS/sim/top.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
