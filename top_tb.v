@@ -9,17 +9,11 @@ reg [63:0]data;
 reg [3:0]key;
 
 
-initial begin
-    clk_tb <= 0;
-    sw <= 3'd0;
-    key <= 4'd0;
-    R_R2 <= 0;
-    R_E2 <= 0;
-    data <= 64'd0;
-end
-   
-   
-   always #10 clk_tb <= ~clk_tb;
+
+initial    clk_tb <= 0;
+initial    sw <= 3'd0;
+    
+    always #10 clk_tb <= ~clk_tb;
    
    
        // Instanciação do módulo top

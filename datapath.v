@@ -77,8 +77,8 @@ mux2x1 HEX5_1(
 );
 
 mux2x1 HEX5_2(
-	.a_i(w_mux2x1_hex5), //L
-	.b_i(7'b0001_110),
+	.a_i(w_mux2x1_hex5), 
+	.b_i(7'b0001_110),//L
 	.sel_i(SEL),
 	.d_o(hex5[6:0])
 );
@@ -178,7 +178,7 @@ segDisplay HEX0_DISPLAY2(
 );
 
 // COUNTERS
-Counter_time  Time (    
+counterTime  Time (    
 	 .CLKT(CLOCK_50), //? CLOCK_1Hz
 	 .R(R2), 
 	 .E(E2), 
@@ -200,7 +200,7 @@ counterGENERAL Round(
 
 wire [3:0] SEQFPGA_seq;
 
-Counter_FPGA FPGA(
+counterFPGA FPGA(
 	.data(ROUND[3:0]),
 	.clk(CLOCK_50), // CLOCK_50
 	.R(R2),

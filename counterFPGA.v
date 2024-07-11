@@ -1,4 +1,4 @@
-module Counter_FPGA
+module counterFPGA
 #(parameter SIZE = 4)
 (
 	data,
